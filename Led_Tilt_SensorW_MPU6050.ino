@@ -4,9 +4,9 @@
 #include <math.h>
 
 int tiltVal;
-int latchPin = 11;      // (11) ST_CP [RCK] on 74HC595
-int clockPin = 9;      // (9) SH_CP [SCK] on 74HC595
-int ledDataPin = 12;     // (12) DS [S1] on 74HC595
+int latchPin = 11;      // (11) ST_CP on 74HC595
+int clockPin = 9;      // (9) SH_CP on 74HC595
+int ledDataPin = 12;     // (12) DS on 74HC595
 int j;
 byte ledData;
 Adafruit_MPU6050 mpu;
@@ -17,14 +17,8 @@ void updateShiftRegister(int latchPin, int ledDataPin, int clockPin, int bitOrde
    digitalWrite(latchPin, HIGH);
 }
 
-
-
-
-
 void setup() {
  
-
-
   Serial.begin(115200);
   while (!Serial) delay(10);
 
@@ -52,7 +46,6 @@ void setup() {
 
 void loop() {
  
-
   sensors_event_t a, g, temp;
   mpu.getEvent(&a, &g, &temp);
 
